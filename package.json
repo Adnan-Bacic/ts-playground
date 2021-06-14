@@ -1,0 +1,16 @@
+{
+  "name": "ts-playground",
+  "version": "1.0.0",
+  "description": "ts-playground",
+  "main": "index.js",
+  "repository": "https://github.com/Adnan-Bacic/ts-playground.git",
+  "author": "Adnan-Bacic <adnan-bacic@hotmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "tsc": "tsc -w"
+  },
+  "dependencies": {
+    "typescript": "^4.3.2"
+  }
+}
