@@ -28,7 +28,15 @@ var9 = {
     name: 22,
     age: '1'
 };
+var addFunc = function (a, b) {
+    return a + b;
+};
 var var10;
+var10 = addFunc;
+console.log('var10', var10(4, 6));
+var var11;
+var11 = addFunc;
+console.log('var11', var11(3, 4));
 //functions
 var func1 = function () {
     console.log('func1');
@@ -76,6 +84,11 @@ func9 = function (num1, num2) {
     return num1 + num2;
 };
 console.log(func9(4, 4));
+//void means there is no return
+var func10 = function () {
+    console.log('void function');
+};
+console.log('func10', func10());
 //arrays
 //array is always strings
 var arr1;
@@ -98,12 +111,16 @@ obj1.name = 'name2';
 //error if we change type
 obj1.age = 10;
 console.log('obj1', obj1);
-var obj2;
-obj2 = {
+var obj2 = {
     name: 'name1',
     age: 1
 };
 console.log('obj2', obj2);
+var obj3 = {
+    name: 'name1',
+    age: 1
+};
+console.log('obj3', obj3);
 var me = {
     name: 'name1',
     age: 1,
@@ -145,7 +162,7 @@ var Enum1;
     Enum1["option2"] = "option2";
     Enum1["option3"] = "option3";
 })(Enum1 || (Enum1 = {}));
-var enum1 = Enum1.option2;
+var enum1 = Enum1;
 console.log('enum1', enum1);
 var ResourceType;
 (function (ResourceType) {

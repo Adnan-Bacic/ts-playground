@@ -10,7 +10,8 @@
   "scripts": {
     "tsc": "tsc -w"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "typescript": "^4.3.2"
   }
 }

@@ -25,7 +25,17 @@ var9 = {
     name: 22,
     age: '1'
 }
+
+const addFunc = (a: number, b:number) => {
+    return a + b
+}
 let var10: Function
+var10 = addFunc
+console.log('var10', var10(4,6))
+
+let var11: (a: number, b: number) => number
+var11 = addFunc
+console.log('var11', var11(3,4))
 
 //functions
 const func1 = () => {
@@ -86,6 +96,12 @@ func9 = (num1: number, num2: number) => {
 }
 console.log(func9(4, 4))
 
+//void means there is no return
+const func10 = (): void => {
+    console.log('void function')
+}
+console.log('func10', func10())
+
 //arrays
 
 //array is always strings
@@ -112,12 +128,20 @@ obj1.name = 'name2'
 obj1.age = 10
 console.log('obj1', obj1)
 
-let obj2: object
-obj2 = {
+let obj2: object = {
     name: 'name1',
     age: 1
 }
 console.log('obj2', obj2)
+
+let obj3: {
+    name: string,
+    age: number
+} = {
+    name: 'name1',
+    age: 1
+}
+console.log('obj3', obj3)
 
 //interfaces
 interface PersonInterface {
@@ -172,7 +196,7 @@ enum Enum1 {
     option2 = 'option2',
     option3 = 'option3'
 }
-const enum1 = Enum1.option2
+const enum1 = Enum1
 console.log('enum1', enum1)
 
 enum ResourceType { BOOK, AUTHOR, FILM, DIRECTOR, PERSON }
