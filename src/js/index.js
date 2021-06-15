@@ -1,4 +1,15 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 //variable types
 var var1 = 'name1';
 //changing it to a number gives an error
@@ -93,3 +104,68 @@ obj2 = {
     age: 1
 };
 console.log('obj2', obj2);
+var me = {
+    name: 'name1',
+    age: 1,
+    speak: function (text) {
+        console.log(text);
+    },
+    spend: function (amount) {
+        console.log(amount);
+        return amount;
+    },
+    do: function () {
+        return 'do function';
+    }
+};
+console.log('interface', me);
+var greetPerson = function (person) {
+    console.log('interface param', person.name);
+};
+greetPerson(me);
+//generics
+var addID = function (obj) {
+    var uid = Math.floor(Math.random() * 100);
+    return __assign(__assign({}, obj), { uid: uid });
+};
+var generic1 = addID({ name: 'name1', age: 1 });
+console.log('generic1', generic1);
+//console.log(generic1.name) doesnt work normally in this case
+var addID2 = function (obj) {
+    var uid = Math.floor(Math.random() * 100);
+    return __assign(__assign({}, obj), { uid: uid });
+};
+var generic2 = addID2({ name: 'name1', age: 1 });
+console.log('generic2', generic2);
+console.log('works now', generic2.uid);
+//enum
+var Enum1;
+(function (Enum1) {
+    Enum1["option1"] = "option1";
+    Enum1["option2"] = "option2";
+    Enum1["option3"] = "option3";
+})(Enum1 || (Enum1 = {}));
+var enum1 = Enum1.option2;
+console.log('enum1', enum1);
+var ResourceType;
+(function (ResourceType) {
+    ResourceType[ResourceType["BOOK"] = 0] = "BOOK";
+    ResourceType[ResourceType["AUTHOR"] = 1] = "AUTHOR";
+    ResourceType[ResourceType["FILM"] = 2] = "FILM";
+    ResourceType[ResourceType["DIRECTOR"] = 3] = "DIRECTOR";
+    ResourceType[ResourceType["PERSON"] = 4] = "PERSON";
+})(ResourceType || (ResourceType = {}));
+var ResourceTypeTest = ResourceType.FILM;
+console.log('ResourceTypeTest', ResourceTypeTest);
+var generic3 = {
+    uid: 1,
+    resourceName: ResourceType.PERSON,
+    data: 'string'
+};
+console.log('generic3', generic3);
+var generic4 = {
+    uid: 2,
+    resourceName: ResourceType.BOOK,
+    data: ['1', '2', '3']
+};
+console.log('generic4', generic4);

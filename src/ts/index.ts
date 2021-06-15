@@ -118,3 +118,84 @@ obj2 = {
     age: 1
 }
 console.log('obj2', obj2)
+
+//interfaces
+interface PersonInterface {
+    name: string,
+    age: number,
+    speak(a: string): void
+    spend(a: number): number
+    do:() => void
+}
+
+const me: PersonInterface = {
+    name: 'name1',
+    age: 1,
+    speak(text: string): void{
+        console.log(text)
+    },
+    spend(amount: number): number {
+        console.log(amount)
+        return amount
+    },
+    do(){
+        return 'do function'
+    }
+}
+console.log('interface', me)
+
+const greetPerson = (person: PersonInterface) => {
+    console.log('interface param', person.name)
+}
+greetPerson(me)
+
+//generics
+const addID = (obj: object) => {
+    let uid = Math.floor(Math.random() * 100)
+    return {...obj, uid}
+}
+let generic1 = addID({name: 'name1', age: 1})
+console.log('generic1', generic1)
+//console.log(generic1.name) doesnt work normally in this case
+
+const addID2 = <T extends { name: string }>(obj: T) => {
+    let uid = Math.floor(Math.random() * 100)
+    return {...obj, uid}
+}
+let generic2 = addID2({name: 'name1', age: 1})
+console.log('generic2', generic2)
+console.log('works now', generic2.uid)
+
+//enum
+enum Enum1 {
+    option1 = 'option1',
+    option2 = 'option2',
+    option3 = 'option3'
+}
+const enum1 = Enum1.option2
+console.log('enum1', enum1)
+
+enum ResourceType { BOOK, AUTHOR, FILM, DIRECTOR, PERSON }
+
+const ResourceTypeTest = ResourceType.FILM
+console.log('ResourceTypeTest', ResourceTypeTest)
+
+//with interface
+interface Resource<T> {
+    uid: number,
+    resourceName: ResourceType,
+    data: T
+}
+const generic3: Resource<string> = {
+    uid: 1,
+    resourceName: ResourceType.PERSON,
+    data: 'string'
+}
+console.log('generic3', generic3)
+
+const generic4: Resource<string[]> = {
+    uid: 2,
+    resourceName: ResourceType.BOOK,
+    data: ['1', '2', '3']
+}
+console.log('generic4', generic4)

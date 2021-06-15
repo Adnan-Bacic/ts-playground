@@ -1,4 +1,4 @@
-"use strict";
+//implments makes it so we have to have the same 
 var Person = /** @class */ (function () {
     function Person(name, age, height, weight, birthYear) {
         this.name = name;
@@ -29,3 +29,4 @@ console.log(person1.greet());
 console.log(person1.privateVarFunc());
 console.log('readonly, cant change value in class', person1.birthYear);
 console.log('protected', person1.protectedVarFunc());
+export {};
