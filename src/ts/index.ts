@@ -180,7 +180,7 @@ const addID = (obj: object) => {
 }
 let generic1 = addID({name: 'name1', age: 1})
 console.log('generic1', generic1)
-//console.log(generic1.name) doesnt work normally in this case
+//console.log(generic1.name) doesnt work in this case, like it would normally
 
 const addID2 = <T extends { name: string }>(obj: T) => {
     let uid = Math.floor(Math.random() * 100)
@@ -223,3 +223,13 @@ const generic4: Resource<string[]> = {
     data: ['1', '2', '3']
 }
 console.log('generic4', generic4)
+
+//we dont have to create a function for both numbers and strings if we use a generic
+const last = <T>(arr: T[]): T => {
+    return arr[arr.length - 1]
+}
+//optional type
+const generic5 = last<number>([1, 2 ,3])
+const generic6 = last(['a', 'b', 'c'])
+console.log('generic5', generic5)
+console.log('generic6', generic6)

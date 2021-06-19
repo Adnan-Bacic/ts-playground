@@ -147,7 +147,7 @@ var addID = function (obj) {
 };
 var generic1 = addID({ name: 'name1', age: 1 });
 console.log('generic1', generic1);
-//console.log(generic1.name) doesnt work normally in this case
+//console.log(generic1.name) doesnt work in this case, like it would normally
 var addID2 = function (obj) {
     var uid = Math.floor(Math.random() * 100);
     return __assign(__assign({}, obj), { uid: uid });
@@ -186,3 +186,12 @@ var generic4 = {
     data: ['1', '2', '3']
 };
 console.log('generic4', generic4);
+//we dont have to create a function for both numbers and strings if we use a generic
+var last = function (arr) {
+    return arr[arr.length - 1];
+};
+//optional type
+var generic5 = last([1, 2, 3]);
+var generic6 = last(['a', 'b', 'c']);
+console.log('generic5', generic5);
+console.log('generic6', generic6);
